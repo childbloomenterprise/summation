@@ -43,3 +43,7 @@ See `PREREG.md` (committed before any run) and `RESULTS.md`. Reproduce:
 pip install -e ".[encoders,unpaired,demo]"
 python demo/rsicd.py extract && python demo/rsicd.py evaluate
 ```
+
+## Results
+
+See [RESULTS.md](RESULTS.md). Short version: with 1,000 pairs, stitched DINOv2+MPNet beats CLIP and SigLIP on robot camera frames (DROID, mR 14.4 vs 8.0). It loses to SigLIP on satellite images (RSICD, 18.2 vs 22.0). It loses to CLIP at 100 pairs in both. Pair-free mode does not work on either.

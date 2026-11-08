@@ -23,6 +23,7 @@ IMAGE = {"dinov2-base": "hf-image:facebook/dinov2-base", "dinov2-small": "hf-ima
 TEXT = {"mpnet": "st:sentence-transformers/all-mpnet-base-v2", "minilm": "st:sentence-transformers/all-MiniLM-L6-v2"}
 CLIPS = {"clip-b32": "clip:ViT-B-32-quickgelu:openai", "clip-l14": "clip:ViT-L-14-quickgelu:openai",
          "siglip-b16": "clip:ViT-B-16-SigLIP:webli"}
+TRAIN_TOO = {"dinov2-base", "dinov2-small", "mpnet", "minilm", "clip-b32"}
 PAIRS = {"primary": ("dinov2-base", "mpnet"), "secondary": ("dinov2-small", "minilm")}
 
 
@@ -98,7 +99,7 @@ def extract(names=None):
         if names and name not in names:
             continue
         enc = None
-        for split in ("test", "train"):
+        for split in ("test", "train") if name in TRAIN_TOO else ("test",):
             out = cache_path(name, split, modality)
             if out.exists():
                 continue
