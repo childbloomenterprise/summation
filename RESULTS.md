@@ -58,7 +58,7 @@ Verified:
 - Exploratory (not pre-registered): rotating CLIP-B/32 itself with the same 1,000 pairs gets 11.4 on DROID and 17.5 on RSICD. So most of the DROID gain comes from fitting on in-domain pairs at all; swapping in DINOv2+MPNet adds a further ~3 mR.
 
 Caveats / inference:
-- DROID fit and test come from adjacent data files (episodes 0–~2,900 of the first metadata file). The same labs, scenes and task phrasings may appear in both; 18.7% of test instructions occur verbatim in the fit pool. A lab-held-out split could lower the stitched numbers. This was not tested.
+- DROID fit and test come from adjacent data files (episode indices 1–3,269 of DROID 1.0.1). The same labs, scenes and task phrasings may appear in both; 18.7% of test instructions occur verbatim in the fit pool. A lab-held-out split could lower the stitched numbers. This was not tested.
 - DROID instructions are short and repetitive ("put the marker in the cup"); retrieval is scored against one exact episode, so absolute numbers are low for every method.
 - One middle frame per episode, one camera. Clip-level (video) search was not tested.
 
