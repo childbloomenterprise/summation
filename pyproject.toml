@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "summation"
+version = "0.1.0"
+description = "Stitch two frozen encoders (e.g. image and text) with one rotation fitted on few or no pairs."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.optional-dependencies]
+encoders = ["torch>=2.1", "transformers>=4.40", "sentence-transformers>=3.0", "open_clip_torch>=2.24", "pillow>=10"]
+unpaired = ["pot>=0.9"]
+demo = ["pyarrow>=14", "huggingface_hub>=0.23"]
+test = ["pytest>=7"]
+
+[project.scripts]
+summation = "summation.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
